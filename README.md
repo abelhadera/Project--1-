@@ -6,8 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Project-1 file may be used to install only certain pieces of it, such as Filebeat.
 
-Ansible-playbook.png
-
+https://github.com/abelhadera/Project--1-/blob/75e64dfc9e93eb01fe969a738d1ffcc75e2d8560/Ansible-playbook.png
 
 This document contains the following details:
 - Description of the Topologu
