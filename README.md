@@ -131,9 +131,9 @@ nano filebeat-playbook.yml
   become: yes
   tasks:
     
-  - name: Download filebeat .deb file
+  -name: Download filebeat .deb file
     command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
-
+ 
     
   - name: Install filebeat .deb
     command: dpkg -i filebeat-7.4.0-amd64.deb
