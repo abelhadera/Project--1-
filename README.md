@@ -25,7 +25,9 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly functional, in addition to restricting huge amount of traffic to the network.
  What aspect of security do load balancers protect? What is the advantage of a jump box?_
-*It help prevent the servers from being overcrowded while optimizes the availability of the Web servers in case of the event of one website being shutdown the other will be up and running. With the Jump-Box being the centralized location for configuration and holding docker/ansible container for "easy" maintence
+
+
+It help prevent the servers from being overcrowded while optimizes the availability of the Web servers in case of the event of one website being shutdown the other will be up and running. With the Jump-Box being the centralized location for configuration and holding docker/ansible container for "easy" maintence
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the system.
 - What does Filebeat watch for?_ * Filebeat monitors log files that I specify to watch and sends the data to the "Elasticsearch"
