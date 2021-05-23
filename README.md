@@ -124,41 +124,39 @@ In the etc/ansible/host file one group will be name [webservers] that has your t
 
 
 
-nano filebeat-playbook.yml
+  -------Filebeat---------
+
+-create the filebeat-configuration.yml file: nano filebeat-configuration.yml; and make the apporiate configurations in the file provided 
+
+- To create the playbook: nano filebeat-playbook.yml
+
+  ---
+ - name: installing and launching filebeat
+	   hosts: webservers
+       become: true
+       tasks:
+
+	   - name: download filebeat deb
+  	     command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.1-amd64.deb
+
+	   - name: install filebeat deb
+  	     command: dpkg -i filebeat-7.7.1-amd64.deb
+
+	   - name: drop in filebeat.yml
+  	     copy:
+   	       src: ./files/filebeat-configuration.yml
+   	       dest: /etc/filebeat/filebeat.yml
+
+	   - name: enable and configure system module
+  	     command: filebeat modules enable system
+
+	   - name: setup filebeat
+  	     command: filebeat setup
+
+	   - name: start filebeat service
+  	    command: service filebeat start
 ---
-- name: Installing and Launch Filebeat
-  hosts: webservers
-  become: yes
-  tasks:
-    
-  -name: Download filebeat .deb file
-    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
- 
-    
-  - name: Install filebeat .deb
-    command: dpkg -i filebeat-7.4.0-amd64.deb
-    
-    
-  - name: Drop in filebeat.yml
-    copy:
-      src: /etc/ansible/filebeat-config.yml
-      dest: /etc/filebeat/filebeat.yml
+-To run the playbook: ansible-playbook filebeat-playbook.yml
 
-    
-  - name: Enable and Configure System Module
-    command: filebeat modules enable system
-
-    
-  - name: Setup filebeat service
-  - command: service filebeat start 
-
-    
-  - name: Enable service filebeat on boot 
-  - systemd:
-        name: filebeat
-        enabled: yes
-
-
-run ansible-playbook filebeat-playbook.yml (in the same directory)
 
 
